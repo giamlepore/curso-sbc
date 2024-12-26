@@ -168,6 +168,10 @@ export function FeaturesSection() {
                     loop
                     muted
                     playsInline
+                    onLoadedData={(e) => {
+                      const video = e.currentTarget;
+                      video.currentTime = 0;
+                    }}
                   />
                   <div 
                     className="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-[#0d1117]/80 to-transparent cursor-pointer group"
