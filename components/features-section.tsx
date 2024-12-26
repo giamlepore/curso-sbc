@@ -110,7 +110,18 @@ export function FeaturesSection() {
                     ? "bg-[#161b22] text-[#58a6ff] border-[#58a6ff]" 
                     : "bg-[#0d1117] text-gray-400 hover:text-gray-200 hover:bg-[#161b22]"
                 )}
-                onClick={() => setActiveFeature(feature.id)}
+                onClick={() => {
+                  setActiveFeature(feature.id)
+                  setTimeout(() => {
+                    const video = document.querySelector(`#video-${feature.id}`) as HTMLVideoElement
+                    if (video) {
+                      video.currentTime = 0
+                      video.play()
+                      const overlay = video.nextElementSibling as HTMLDivElement
+                      if (overlay) overlay.style.opacity = '0'
+                    }
+                  }, 0)
+                }}
               >
                 <Icon className="h-4 w-4" />
                 {feature.title}
@@ -150,6 +161,7 @@ export function FeaturesSection() {
                     : "aspect-[390/844]"
                 )}>
                   <video
+                    id={`video-${feature.id}`}
                     src={feature.content.videoUrl}
                     className="absolute inset-0 w-full h-full object-cover"
                     controls={false}
