@@ -40,10 +40,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </div>
             <div className="flex items-center gap-4">
               <Link 
-                href="#" 
-                className="text-sm text-gray-400 hover:text-gray-100 transition-colors"
+                href="/precos"
+                className="text-sm text-gray-400 hover:text-gray-100 transition-colors md:hidden"
               >
-                Conecte-se
+                Preços
               </Link>
               <Button 
                 className="bg-[#238636] hover:bg-[#2ea043] text-white border-none transition-colors"
