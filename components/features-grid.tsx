@@ -10,9 +10,9 @@ const features = {
     color: 'text-[#58a6ff]',
     dotColor: 'bg-[#58a6ff]',
     items: [
-      'Discussões organizadas',
-      'Posts estruturados',
-      'Gerador de conteúdo de IA',
+      'Acesso gratuito aos membros',
+      'Acesso pago aos membros',
+      'Avaliações e testes',
       'Cursos imersivos',
       'Espaços privados',
       'Legendas automáticas de vídeos',
@@ -25,14 +25,11 @@ const features = {
     color: 'text-[#238636]',
     dotColor: 'bg-[#238636]',
     items: [
-      'Chat em grupo',
-      'Mensagens privadas',
-      'Espaços para eventos',
-      'Transmissões ao vivo',
-      'Resumos semanais',
-      'Contato direto com os membros',
-      'Gamificação',
-      'Mensagens em massa'
+      'Ranking de membros',
+      'Sequência de acesso',
+      'Programa de indicações com prêmios',
+      'Comentários',
+      'Testes e avaliações',
     ]
   },
   monetize: {
@@ -40,14 +37,11 @@ const features = {
     color: 'text-[#a371f7]',
     dotColor: 'bg-[#a371f7]',
     items: [
-      'Assinaturas pagas',
-      'Pagamento único',
-      'Assinaturas recorrentes',
+      'Use o seu próprio método de pagamento',
+      'Use VIMEO ou YOUTUBE para hospedar seus vídeos',
       'Acesso controlado',
-      'Testes gratuitos e upgrades',
-      'Opções de parcelamento',
-      'Cupons e descontos',
-      'Lembretes de renovação da assinatura'
+      'Testes gratuitos',
+      'Libere cupons para usuários que concluíram aulas gratuitas',
     ]
   },
   escale: {
@@ -55,14 +49,10 @@ const features = {
     color: 'text-[#f778ba]',
     dotColor: 'bg-[#f778ba]',
     items: [
-      'Milhares de integrações',
-      'Automações',
-      'Campos de perfil personalizados',
-      'Pontuação por atividade',
-      'Ações em massa',
-      'SSO',
-      'Funções & permissões',
-      'Remoção automática de ex-membros'
+      'Programa de indicações (use com membros ou afiliados)',
+      'Veja quem assistiu suas aulas e quando',
+      'Certificados constantes',
+      'Veja quantos usuários ativos você teve por dia, em um calendário',
     ]
   }
 }
@@ -98,7 +88,7 @@ export function FeaturesGrid() {
                   <ul className="space-y-4">
                     {category.items.map((item) => (
                       <li key={item} className="flex items-start gap-2 group">
-                        <Check className="h-4 w-4 mt-1 text-[#238636]" />
+                        <Check className="h-5 w-5 mt-1 text-[#238636]" />
                         <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
                           {item}
                         </span>
@@ -132,7 +122,7 @@ export function FeaturesGrid() {
             <ul className="space-y-4">
               {category.items.map((item) => (
                 <li key={item} className="flex items-start gap-2 group">
-                  <Check className="h-4 w-4 mt-1 text-[#238636]" />
+                  <Check className="h-5 w-5 mt-1 text-[#238636]" />
                   <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
                     {item}
                   </span>

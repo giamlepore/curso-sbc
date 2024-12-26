@@ -60,7 +60,7 @@ export function TestimonialsSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-100 mb-4">
             Amado por milhares de
             <br />
-            <span className="text-[#58a6ff]">criadores e marcas</span>
+            <span className="text-[#58a6ff]">usuários</span>
           </h2>
         </div>
 

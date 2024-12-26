@@ -1,7 +1,16 @@
+'use client'
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
 export function HeroSection() {
+  const handleClick = () => {
+    const featuresSection = document.querySelector('#features-section')
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section className="relative bg-[#0d1117] py-24 overflow-hidden">
       {/* Gradient Background Effect */}
@@ -21,17 +30,20 @@ export function HeroSection() {
           </h1>
           
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-lg">
-            Construa um espaço seguro para a sua comunidade, eventos e cursos — tudo alinhado à sua marca.
+            O menor custo para colocar o seu curso no ar, usando o seu próprio método de pagamento.
           </p>
 
-          <div className="flex max-w-md mx-auto gap-2 mb-16">
-            <Input 
+          <div className="flex max-w-md mx-auto gap-2 -mb-16 md:mb-16 justify-center">
+            {/* <Input 
               type="email" 
               placeholder="Insira seu endereço de e-mail"
               className="bg-[#161b22] border-[#30363d] text-gray-100 placeholder:text-gray-500 focus:border-[#58a6ff] focus:ring-1 focus:ring-[#58a6ff]"
-            />
-            <Button className="bg-[#238636] hover:bg-[#2ea043] text-white border-none whitespace-nowrap px-8">
-              Comece agora
+            /> */}
+            <Button 
+              className="bg-[#238636] hover:bg-[#2ea043] text-white border-none whitespace-nowrap px-8"
+              onClick={handleClick}
+            >
+              Conheça agora
             </Button>
           </div>
           
@@ -47,19 +59,19 @@ export function HeroSection() {
               {[
                 {
                   title: "Comece",
-                  description: "Comece a construir uma comunidade à medida que aumente seu público"
+                  description: "Escolha a opção que melhor se adapta ao seu curso"
                 },
                 {
-                  title: "Engaje",
-                  description: "Construa um espaço seguro para a sua comunidade com assinaturas, discussões, eventos e cursos"
+                  title: "Informe",
+                  description: "Em 2 dias úteis colocamos sua plataforma no ar, com a sua marca"
                 },
                 {
                   title: "Monetize",
-                  description: "Use nossa estrutura de pagamento de primeira classe para transformar sua comunidade em um negócio significativo"
+                  description: "Use sua própria plataforma de pagamento, sem estar vinculado a plataforma"
                 },
                 {
                   title: "Escale",
-                  description: "Escale seu negócio com automações, IA e aplicativos personalizados"
+                  description: "Use a plataforma para o início do seu negócio, com membros gratuitos e pagos"
                 }
               ].map((stage, index) => (
                 <div key={stage.title} className="flex flex-col items-center pt-8">

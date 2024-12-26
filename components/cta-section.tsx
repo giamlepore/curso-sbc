@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ShieldCheck } from "lucide-react"
@@ -28,16 +30,17 @@ export function CTASection() {
               Pronto para começar?
             </h2>
 
-            <div className="flex max-w-md mx-auto gap-3 mb-6">
-              <Input 
+            <div className="flex flex-col md:flex-row max-w-md mx-auto gap-3 mb-6 justify-center">
+              {/* <Input 
                 type="email" 
                 placeholder="Insira seu endereço de e-mail"
                 className="bg-[#0d1117] border-[#30363d] text-gray-100 placeholder:text-gray-500 focus:border-[#58a6ff] focus:ring-1 focus:ring-[#58a6ff]"
-              />
+              /> */}
               <Button 
                 className="bg-[#238636] hover:bg-[#2ea043] text-white border-none whitespace-nowrap px-8 transition-colors"
+                onClick={() => window.location.href = 'https://wa.me/5561999798448'}
               >
-                Comece os seus 14 dias grátis
+                Peça os seus 14 dias grátis
               </Button>
             </div>
 

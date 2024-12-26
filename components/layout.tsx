@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ChevronDown } from 'lucide-react'
 import { ProductMenu } from './product-menu'
+import Image from 'next/image'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,9 +13,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center gap-8">
               <Link 
                 href="/" 
-                className="text-2xl font-bold text-gray-100 hover:text-[#58a6ff] transition-colors"
+                className="text-xl font-bold text-gray-100 hover:text-[#58a6ff] transition-colors flex items-center gap-2 bg-black/40 px-3 py-1 rounded-lg"
               >
-                SBC
+                <Image
+                  src="/curio2.png"
+                  alt="Curio"
+                  width={120}
+                  height={32}
+                  className="h-10 w-auto"
+                />
+                <span>curiô</span>
               </Link>
               <nav className="hidden md:flex items-center gap-6">
                 <ProductMenu />

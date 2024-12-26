@@ -12,39 +12,39 @@ const features = [
     title: 'Início',
     icon: Users,
     content: {
-      title: 'Sua central de comando',
-      description: 'Tenha uma visão geral de toda sua comunidade em um só lugar.',
-      videoUrl: '/placeholder.mp4'
+      title: 'Crie versão paga e gratuita',
+      description: 'Deixe aulas gratuitas e aulas pagas para sua comunidade.',
+      videoUrl: '/freemium.mov'
     }
   },
   {
     id: 'discussions',
-    title: 'Discussões',
+    title: 'Acompanhe indicações',
     icon: MessageCircle,
     content: {
-      title: 'Discussões engajadas',
-      description: 'Crie espaços para conversas significativas em sua comunidade.',
-      videoUrl: '/placeholder.mp4'
+      title: 'Permita que seus membros e afiliados indiquem outros membros',
+      description: 'Permita indicações entre usuários e afiliados, crie prêmios e veja o status dos alunos que foram indicados.',
+      videoUrl: '/referral.mov'
     }
   },
   {
     id: 'events',
-    title: 'Eventos',
+    title: 'Certificados',
     icon: Bell,
     content: {
-      title: 'Eventos memoráveis',
-      description: 'Organize eventos online e presenciais para sua comunidade.',
-      videoUrl: '/placeholder.mp4'
+      title: 'Certificados constantes',
+      description: 'Libere certificados ao concluir cada módulo, e engaje seus membros com a sua marca.',
+      videoUrl: '/certificado.mov'
     }
   },
   {
     id: 'live',
-    title: 'Ao Vivo',
+    title: 'Gamifique',
     icon: Video,
     content: {
-      title: 'Transmissões ao vivo',
-      description: 'Conecte-se em tempo real com sua audiência.',
-      videoUrl: '/placeholder.mp4'
+      title: 'Crie questionários e testes para atrair mais membros',
+      description: 'Tenha um ranking de membros que mais se destacaram, e crie um sistema de recompensas para incentivar a participação.',
+      videoUrl: '/Gamifique.mov'
     }
   },
   {
@@ -54,17 +54,17 @@ const features = [
     content: {
       title: 'Cursos interativos',
       description: 'Crie e gerencie cursos online para sua comunidade.',
-      videoUrl: '/placeholder.mp4'
+      videoUrl: '/movie.mov'
     }
   },
   {
     id: 'chat',
-    title: 'Bate-papo',
+    title: 'Shorts (Vídeos curtos)',
     icon: MessageCircle,
     content: {
-      title: 'Chat em tempo real',
-      description: 'Mantenha conversas instantâneas com membros.',
-      videoUrl: '/placeholder.mp4'
+      title: 'Coloque vídeos curtos para seus membros',
+      description: 'Mantenha o engajamento mesmo que seus membros não tenham tempo de assistir a um vídeo inteiro.',
+      videoUrl: '/shorts.mov'
     }
   },
   {
@@ -73,8 +73,8 @@ const features = [
     icon: Users2,
     content: {
       title: 'Gestão de membros',
-      description: 'Administre sua comunidade de forma eficiente.',
-      videoUrl: '/placeholder.mp4'
+      description: 'Administre sua comunidade de forma eficiente. Veja quantos usuários acessaram, quantos assistiram, quem assistiu mais, e muito mais.',
+      videoUrl: '/admin.mov'
     }
   }
 ]
@@ -83,7 +83,7 @@ export function FeaturesSection() {
   const [activeFeature, setActiveFeature] = useState(features[0].id)
 
   return (
-    <section className="py-20 bg-[#0d1117]">
+    <section id="features-section" className="py-20 bg-[#0d1117]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="inline-block mb-4 px-4 py-1 rounded-full bg-[#238636]/10 border border-[#238636]/20">
@@ -137,9 +137,39 @@ export function FeaturesSection() {
                   {feature.content.description}
                 </p>
               </div>
-              <Card className="overflow-hidden bg-[#161b22] border border-[#30363d] group hover:border-[#58a6ff]/50 transition-colors">
-                <div className="aspect-video relative">
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-[#0d1117]/80 to-transparent">
+              <Card className={cn(
+                "overflow-hidden bg-[#161b22] border border-[#30363d] group hover:border-[#58a6ff]/50 transition-colors mx-auto",
+                feature.id === "members"
+                  ? "max-w-[320px] md:max-w-[700px]"
+                  : "max-w-[320px] md:max-w-[390px]"
+              )}>
+                <div className={cn(
+                  "relative",
+                  feature.id === "members" 
+                    ? "aspect-[2336/1658]" 
+                    : "aspect-[390/844]"
+                )}>
+                  <video
+                    src={feature.content.videoUrl}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    controls={false}
+                    loop
+                    muted
+                    playsInline
+                  />
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-[#0d1117]/80 to-transparent cursor-pointer group"
+                    onClick={(e) => {
+                      const video = e.currentTarget.previousElementSibling as HTMLVideoElement;
+                      if (video.paused) {
+                        video.play();
+                        e.currentTarget.style.opacity = '0';
+                      } else {
+                        video.pause();
+                        e.currentTarget.style.opacity = '1';
+                      }
+                    }}
+                  >
                     <PlayCircle className="h-16 w-16 text-[#58a6ff] opacity-75 group-hover:opacity-100 transition-opacity" />
                   </div>
                 </div>
